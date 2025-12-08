@@ -1,0 +1,49 @@
+{
+  "name": "memorylayer-backend",
+  "version": "1.0.0",
+  "description": "MemoryLayer Backend API - Personal knowledge capture and search",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "db:migrate": "node src/config/runMigrations.js"
+  },
+  "keywords": [
+    "memorylayer",
+    "knowledge-management",
+    "api"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "@huggingface/inference": "^4.13.4",
+    "@xenova/transformers": "^2.17.2",
+    "aws-sdk": "^2.1498.0",
+    "axios": "^1.6.2",
+    "bcrypt": "^5.1.1",
+    "bull": "^4.12.0",
+    "cheerio": "^1.0.0-rc.12",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-rate-limit": "^7.1.5",
+    "express-validator": "^7.0.1",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "pg": "^8.11.3",
+    "redis": "^4.6.11",
+    "sharp": "^0.33.1",
+    "tesseract.js": "^5.0.4",
+    "typeorm": "^0.3.19",
+    "uuid": "^9.0.1",
+    "winston": "^3.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
