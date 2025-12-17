@@ -7,6 +7,7 @@ import { SearchBar } from '@/components/features/search/SearchBar';
 import { SearchFilters } from '@/components/features/search/SearchFilters';
 import { SearchResults } from '@/components/features/search/SearchResults';
 import { Card } from '@/components/ui/card';
+import { CaptureType } from '@/types/capture.types';
 
 export default function SearchPage() {
   const searchParams = useSearchParams();
@@ -27,12 +28,15 @@ export default function SearchPage() {
     setTags(urlTags);
   }, [searchParams.get('tags')]);
 
-  const { data, isLoading, pagination } = useSearch({
+  const { data: searchData, isLoading } = useSearch({
     query: query || undefined,
-    types: types.length > 0 ? types : undefined,
+    types: types.length > 0 ? types as CaptureType[] : undefined,
     tags: tags.length > 0 ? tags : undefined,
     sortBy: sortBy as any,
   });
+
+  const captures = (searchData as any)?.data || [];
+  const pagination = (searchData as any)?.pagination;
   
   const handleClearFilters = () => {
     setTypes([]);
@@ -68,7 +72,7 @@ export default function SearchPage() {
 
         <div className="lg:col-span-3">
           <SearchResults
-            captures={data || []}
+            captures={captures}
             isLoading={isLoading}
             totalCount={pagination?.total}
           />

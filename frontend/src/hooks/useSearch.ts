@@ -13,8 +13,8 @@ export function useSearch(params: SearchParams) {
   return useQuery({
     queryKey: ['search', params],
     queryFn: async () => {
-      const response = await apiClient.post('/search', params);
-      return response.data;
+      const response = await apiClient.post<ApiResponse<Capture[]>>('/search', params);
+      return response;
     },
     enabled: isAuthenticated && (!!params.query || !!params.types || !!params.tags),
   });

@@ -116,9 +116,9 @@ export function CaptureDetail({ capture, open, onClose, onDelete }: CaptureDetai
               )}
 
               {/* File Info */}
-              {(capture.type === 'file' || capture.type === 'image') && capture.fileUrl && (
+              {(capture.type === 'file' || capture.type === 'image') && capture.imageUrl && (
                 <Button variant="outline" size="sm" asChild>
-                  <a href={capture.fileUrl} target="_blank" rel="noopener noreferrer">
+                  <a href={capture.imageUrl} target="_blank" rel="noopener noreferrer">
                     <ExternalLink className="h-4 w-4 mr-2" />
                     Download File
                   </a>
@@ -170,7 +170,7 @@ export function CaptureDetail({ capture, open, onClose, onDelete }: CaptureDetai
               <TabsContent value="notes" className="space-y-4">
                 {capture.notes.map((note) => (
                   <div key={note.id} className="border rounded-lg p-4">
-                    <p className="text-sm whitespace-pre-wrap">{note.content}</p>
+                    <p className="text-sm whitespace-pre-wrap">{note.text}</p>
                     <p className="text-xs text-muted-foreground mt-2">
                       {formatDate(new Date(note.createdAt))}
                     </p>
